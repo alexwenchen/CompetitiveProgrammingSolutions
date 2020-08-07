@@ -1,3 +1,4 @@
+//       7/15
 import java.util.*;
 import java.io.*;
 
@@ -116,8 +117,8 @@ public class friendcross {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Reader in = new Reader();
-//		Reader in = new Reader("friendcross.in");
+//		Reader in = new Reader();
+		Reader in = new Reader("friendcross.in");
 		PrintWriter out = new PrintWriter(new File("friendcross.out"));
 		N = in.nextInt();
 		int K = in.nextInt();
@@ -146,7 +147,7 @@ public class friendcross {
 			}
 			mst.update(b[i], location);
 		}
-		System.out.println(ans);
+		out.println(ans);
 		in.close();
 		out.close();
 	}
