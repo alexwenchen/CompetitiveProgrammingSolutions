@@ -1,4 +1,4 @@
-//        7/13
+//        7/13, but c++ version with same idea gets AC
 import java.util.*;
 import java.io.*;
 
