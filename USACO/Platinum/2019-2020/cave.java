@@ -70,7 +70,6 @@ public class cave {
 			for(int j = 1; j < M - 1; ++j) {
 				int ind = j + i * M;
 				if(!lowerLevels[find(ind)]) {
-					if(i == 3 && j == 7) System.out.println(find(ind)); 
 					if(!added2.contains(find(ind))) {
 						update(ind, 2);
 						added2.add(find(ind));
