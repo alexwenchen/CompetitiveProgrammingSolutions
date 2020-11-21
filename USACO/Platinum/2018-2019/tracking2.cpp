@@ -59,7 +59,6 @@ int fact[100001];
 
 int power(int x, int y) 
 { 
-    //if(x == 0) return 0;
     int res = 1; 
     while (y > 0) 
     { 
@@ -132,13 +131,6 @@ int main(){
         int sz = end - last + 1;
         int lb = dom[last];
         int ways = mxL - lb + 1;
-        //cout << sz << " " << lb << "\n";
-        /*
-        if(ways == 1) {
-            while(ind < N && know[ind] != -1) ++ind;
-            last = ind;
-            continue;
-        }*/
         for(int i = 0; i <= sz; ++i){
             rupdate(i, i, -query(i));
         }
@@ -168,7 +160,6 @@ int main(){
             }
             sum = add(sum, dp[i]);
         }
-        //cout << sum << "\n";
         assert(sum > 0);
         segs.eb(sum);
         last = ind;
