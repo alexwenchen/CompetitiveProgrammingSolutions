@@ -1,3 +1,4 @@
+//Java version was a fakesolve, this time its a realsolve. yay!
 //#pragma GCC optimize("Ofast")
 //#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
 //#pragma GCC optimization ("unroll-loops")
@@ -70,15 +71,6 @@ int power(int x, int y)
     return res; 
 }
 
-int modInverse(int a) 
-{ 
-    return power(a, MOD - 2);
-} 
-
-int nCk(int n, int k){
-    return mult(fact[n], modInverse(mult(fact[n - k], fact[k])));
-}
-
 const int mxN = 100005;
 int tree[mxN + 5];
 void update(int index, int val) {
@@ -113,10 +105,6 @@ int main(){
     int c[N + 1 - K];
     for(int i = 0; i < N + 1 - K; ++i){
         cin >> c[i];
-    }
-    fact[0] = fact[1] = 1;
-    for(int i = 2; i <= N; ++i){
-        fact[i] = mult(i, fact[i - 1]);
     }
     int know[N];
     fill(know, know + N, -1);
