@@ -1,3 +1,5 @@
+//java version wasn't a complete solve, realsolved this time
+
 //#pragma GCC optimize("Ofast")
 //#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
 //#pragma GCC optimization ("unroll-loops")
@@ -17,7 +19,6 @@ using pii = pair<int, int>;
 #define x first
 #define y second
 
- 
 const int MOD = 1e9 + 7;
 const int dx[] = {0, 0, 1, -1};
 const int dy[] = {1, -1, 0, 0}; 
@@ -56,7 +57,6 @@ void setIO(string s) {
     freopen((s + ".in").c_str(), "r", stdin);
     freopen((s + ".out").c_str(), "w", stdout);
 }
-
 
 struct s_a {
     vector<int> sa, lcp;
