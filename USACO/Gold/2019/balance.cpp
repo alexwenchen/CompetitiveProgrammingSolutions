@@ -95,7 +95,7 @@ signed main(){
     setup();
     int ans = abs(inv[0] - inv[1]);
     //0:1 -> 1:0 swaps at middle only
-    //decreases left by # of 1s, decreases right by # of 0s
+    //decreases left by # of 1s to the left, decreases right by # of 0s to the right
     
     int sofar = 0, moves = 0;
     while(inds[0][0].size() && inds[1][1].size()) {
@@ -109,7 +109,7 @@ signed main(){
     }
     setup();
     //1:0 -> 0:1 swaps at middle only
-    //decreases left by increase left by # of 1s, increase right by # of 0s
+    //decreases left by 0s to the right and increase left by # of 1s, decrease right by 1s to the left, increase right by # of 0s
     sofar = moves = 0;
     while(inds[0][1].size() && inds[1][0].size()) {
         int c1 = *prev(inds[0][1].end()), c0 = *inds[1][0].begin();
