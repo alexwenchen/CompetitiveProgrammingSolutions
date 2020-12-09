@@ -117,8 +117,8 @@ Mat merge(Mat& a, Mat& b){
 
 void build(int nd, int l, int r){
     if(l == r){
-        st[nd] = makeMat(20, 20);
-        for(int i = 0; i < 20; ++i) {
+        st[nd] = makeMat(K, K);
+        for(int i = 0; i < K; ++i) {
             st[nd][i][i] = 1;
         }
         int cur = A[l];
@@ -158,11 +158,11 @@ signed main(){
     int Q; cin >> Q;
     while(Q--) {
         int l, r; cin >> l >> r; --l; --r;
-        ans = makeMat(1, 20);
+        ans = makeMat(1, K);
         ans[0][0] = 1;
         query(0, 0, N - 1, l, r);
         T ret = 0;
-        for(int i = 0; i < 20; ++i) {
+        for(int i = 0; i < K; ++i) {
             ret += ans[0][i];
         }
         cout << ret.v << "\n";
