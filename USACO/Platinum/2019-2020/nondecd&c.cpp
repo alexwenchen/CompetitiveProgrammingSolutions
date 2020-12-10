@@ -1,3 +1,5 @@
+//holy this took me a while
+//worth it tho, finally solved it
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -56,23 +58,21 @@ int ans[mxQ];
 int lf[mxN][20], rt[mxN][20];
 int amtl[mxN][20], amtr[mxN][20];
 
-void solve(int l, int r) {
+void solve(int l, int r, vector<int>& queries) {
     if(l == r) {
-        for(int i = 0; i < Q; ++i) {
-            if(ans[i] != -1) continue;
-            if(qs[i][0] == qs[i][1] && qs[i][0] == l) {
-                ans[i] = 2;
-            }
+        for(int i : queries) {
+            ans[i] = 2;
         }
         return;
     }
     int m = (l + r) / 2;
-    vector<int> curq;
-    for(int i = 0; i < Q; ++i) {
-        if(ans[i] != -1) continue;
+    vector<int> lft, rght, curq;
+    for(int i : queries) {
         if(qs[i][0] <= m && qs[i][1] > m) {
             curq.eb(i);
-        }
+        } else if(qs[i][1] <= m) {
+            lft.eb(i);
+        } else rght.eb(i);
     }
     bool vis[K];
     fill(vis, vis + K, false);
@@ -153,14 +153,14 @@ void solve(int l, int r) {
             amtl[i][k] = amtr[i][k] = 0;
         }
     }
-    solve(l, m);
-    solve(m + 1, r);
+    solve(l, m, lft);
+    solve(m + 1, r, rght);
 }
 
 signed main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    //fileIO("nondec");
+    fileIO("nondec");
     cin >> N >> K;
     for(int i = 0; i < N; ++i) {
         cin >> A[i]; --A[i];
@@ -174,7 +174,11 @@ signed main(){
             ans[i] = 2;
         }
     }
-    solve(0, N - 1);
+    vector<int> all;
+    for(int i = 0; i < Q; ++i) {
+        all.eb(i);
+    }
+    solve(0, N - 1, all);
     for(int i = 0; i < Q; ++i) {
         cout << ans[i] << "\n";
     }
