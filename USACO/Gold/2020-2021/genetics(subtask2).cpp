@@ -101,9 +101,9 @@ signed main() {
     		for(int tpi = 0; tpi < 4; ++tpi) { //types of i
     			if(tpi != cur && cur != 4) continue;
     			for(int tpj = 0; tpj < 4; ++tpj) { //types of j
-                    if(j == i - 1 && tpi == tpj) continue;
+                    	if(j == i - 1 && tpi == tpj) continue;
     				if(tpj != cur2 && cur2 != 4) continue;
-                    int mlt = calculate(mid, tpj, tpi);
+                    		int mlt = calculate(mid, tpj, tpi);
     				dp[i][tpj] = add(dp[i][tpj], mult(mlt, dp[j - 1][tpi]));
     			}
     		}
