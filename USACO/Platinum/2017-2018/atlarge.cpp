@@ -123,8 +123,9 @@ int depth[mxN], aa[mxN], bb[mxN];
 //3. depth[u] - depth[x] < mindist[x] -> depth[u] < min(depth[x] + mindist[x]) where x is ancestor of u
 
 //final conditions:
-//mindist[v] - depth[v] <= depth[u] < min(mindist[x] - depth[x]) where x is an ancestor of v
-//depth[u] < min(depth[x] + mindist[x]) where x is ancestor of u
+//1. mindist[v] - depth[v] <= depth[u] < min(mindist[x] - depth[x]) where x is an ancestor of v
+//2. depth[u] < min(depth[x] + mindist[x]) where x is ancestor of u
+//gonna use a lazy segment tree to deal with condition 1 - range update from mindist[v] - depth[v] to min(mindist[x] - depth[x]) - 1 for each node, then query the depths
 
 //aa is mindist[x] - depth[x], bb is depth[x] + mindist[x];
 
