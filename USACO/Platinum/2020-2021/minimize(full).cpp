@@ -47,7 +47,7 @@ void solve() {
   }
   multiset<int> prev = diffs[0];
   int ans = N - 1;
-  for(int i = 1; i < N; ++i) {
+  for(int i = 1; i <= N; ++i) {
     multiset<int> unmatched = diffs[i];
     multiset<int> left;
     //match as many prev with cur as we can
