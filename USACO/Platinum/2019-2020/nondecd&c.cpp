@@ -1,5 +1,3 @@
-//holy this took me a while
-//worth it tho, finally solved it
 #include <bits/stdc++.h>
 using namespace std;
  
