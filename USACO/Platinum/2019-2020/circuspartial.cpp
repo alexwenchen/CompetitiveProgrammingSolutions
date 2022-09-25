@@ -1,4 +1,3 @@
-//lol this was as far as i could get on my own
 //  8 / 20
 //time for editorial
 #include <bits/stdc++.h>
