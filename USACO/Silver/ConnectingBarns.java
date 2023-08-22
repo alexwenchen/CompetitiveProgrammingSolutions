@@ -77,13 +77,14 @@ public class ConnectingBarns {
  
         // Case 2 - Use an intermediate component
 
-		long minFirst[] = new long[components.size()];
-		long minNth[] = new long[components.size()];
+	long minFirst[] = new long[components.size()];
+	long minNth[] = new long[components.size()];
 
-		Arrays.fill(minFirst, 1000000000);
-		Arrays.fill(minNth, 1000000000);
+	Arrays.fill(minFirst, 1000000000000000000L);
+	Arrays.fill(minNth, 1000000000000000000L);
  
-        for(int i = 0; i < components.size(); i++) {
+        for(int i = 1; i < components.size(); i++) {
+            if(i == nthFieldComponent) continue;
             for(int node: components.get(i)) {
                 int lower = 0;
                 int upper = firstComp.size() - 1;
@@ -103,10 +104,10 @@ public class ConnectingBarns {
                 int rightNthIndex = binarySearchRight(lower, upper, nthComp, node);
                 long rightCostNth = (long) Math.pow((node - nthComp.get(rightNthIndex)), 2);
  
-				minFirst[i] = Math.min(minFirst[i], Math.min(leftCostFirst, rightCostFirst));
-				minNth[i] = Math.min(minNth[i], Math.min(leftCostNth, rightCostNth));
+		minFirst[i] = Math.min(minFirst[i], Math.min(leftCostFirst, rightCostFirst));
+		minNth[i] = Math.min(minNth[i], Math.min(leftCostNth, rightCostNth));
             }
-			minCost = Math.min(minCost, minFirst[i] + minNth[i]);
+		minCost = Math.min(minCost, minFirst[i] + minNth[i]);
         }
         return minCost;
     }
