@@ -1,7 +1,8 @@
+//credit to Anshul Raghav
 import java.io.*;
 import java.util.*;
  
-public class a {
+public class milkvisits {
     public static int numCows;
     public static int numFarmers;
     public static String cowTypes;
